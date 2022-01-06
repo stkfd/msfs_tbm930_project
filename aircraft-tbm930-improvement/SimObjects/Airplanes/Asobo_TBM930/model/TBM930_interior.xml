@@ -44,6 +44,17 @@
         </ON_AUTOSTOP>
       </UseInputEvent>
     </Component>
+    
+    <Component ID="AAO_External_Control">
+        <UseTemplate Name="ASOBO_GT_Update">
+            <UPDATE_CODE>
+              (L:AAO_TBM930_FUEL_Selection_Set, Number) (&gt;B:FUEL_Selection_set)
+              (L:AAO_TBM930_InertSep, Bool) (B:DEICE_Engine_1, Bool) != if{ (&gt;B:DEICE_Engine_1_Toggle) }
+              (L:AAO_TBM930_AP_Trim, Number) (&gt;B:HANDLING_AP_Trim_Set)
+            </UPDATE_CODE>
+            <FREQUENCY>1</FREQUENCY>
+        </UseTemplate>
+    </Component>
 
     <!-- INSTRUMENT ################################# -->
     <Component ID="INSTRUMENT">
